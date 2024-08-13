@@ -1,9 +1,9 @@
-import chai from "./chai";
+import Chai from "./chai";
 
 function App() {
   return (
     <>
-    <chai/>
+    <Chai/>
     <h1>Chai is working</h1>
     </>
   );
