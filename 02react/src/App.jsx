@@ -11,7 +11,7 @@ function App() {
   const addValue = () => {
     setCounter(prevCounter => {
       const newCounter = prevCounter + 1;
-      setDisable(false); // Enable the decrease button when the counter is above 0
+      setDisable(false);
       return newCounter;
     });
   };
@@ -20,7 +20,7 @@ function App() {
     setCounter(prevCounter => {
       const newCounter = prevCounter - 1;
       if (newCounter <= 0) {
-        setDisable(true); // Disable the decrease button when the counter reaches 0
+        setDisable(true); 
       }
       return newCounter;
     });
