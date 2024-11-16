@@ -3,9 +3,29 @@ import './App.css'
 import { ToDoProvider } from './context'
 
 function App() {
-  const [todo, setTodo] = useState([])
+  const [todos, setTodos] = useState([])
   const addTodo = (todo) =>{
-    setTodo((prev) => [...prev, {id: Date.now, ...todo}]);
+    setTodos((prev) => [...prev, {id: Date.now, ...todo}]);
+  }
+
+  const updateTodo = (id, todo) => {
+    setTodos((prev) => prev.map((prevTodo) => (prevTodo.id === id ? todo : prevTodo)))
+
+    // prev.map((eachVal) => {
+    //   if(eachVal.id === id){
+    //     todo
+    //   } else{
+    //     prevTodo
+    //   }
+    // })
+  }
+
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id))
+  }
+
+  const toggleComplete = (id) =>{
+    setTodos((prev) => prev.map((prevTodo) => prevTodo === id ? {...prevTodo, completed : !prevTodo.completed} : prevTodo))
   }
 
   return (
