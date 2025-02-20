@@ -1,9 +1,22 @@
-import Chai from "./chai";
+import { useState, useEffect } from "react";
 
-function App() {
-    return (
-      <Chai/>
-    );
+const App = () => {
+  const [count, setCount] = useState(0);
+  useEffect(()=>{
+    console.log("Component rerendered Successfully");
+    
+  }, [])
+
+  const onClick = ()=>{
+    setCount(count + 1);
+    setCount(count + 1);
   }
-  
-export default App;
+  return (
+    <div>
+      <button onClick={onClick}>Click Me</button>
+      <p>Button clicked {count} times</p>
+    </div>
+  )
+}
+
+export default App
