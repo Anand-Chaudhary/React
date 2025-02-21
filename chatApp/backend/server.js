@@ -20,7 +20,11 @@ io.on('connection', (socket)=>{
     
     socket.on('join_room', (data)=>{
         socket.join(data);
-        console.log(`User ${socket.id} joined the room ${room}`);
+        console.log(`User ${socket.id} joined the room ${data}`);
+    })
+
+    socket.on('sendMessage', (data)=>{
+        socket.to(data.room).emit('receiveMessage', data)
     })
 
     socket.on('disconnect', ()=>{
