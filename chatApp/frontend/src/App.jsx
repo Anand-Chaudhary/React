@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     socket.on("receiveMessage", (data) => {
       console.log(data);
-    })
+    }) //eslint-disabled-next-line
   }, [socket])
 
   return (
